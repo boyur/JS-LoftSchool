@@ -18,16 +18,14 @@ ul {
     margin: 10px 0;
 }
 
-.item__title, .item__text {
-    padding: 10px;
-}
-
 .item__title {
     border-radius: 25px;
+    padding: 15px;
 }
 
 .item__text {
     display: none;
+    padding: 15px;
 }
 
 .accordion__item:nth-child(odd) .item__title {
