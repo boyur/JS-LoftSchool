@@ -16,6 +16,7 @@ ul {
     background-color: #e7e7e7;
     border-radius: 25px;
     margin: 10px 0;
+    overflow: hidden;
 }
 
 .item__title {
@@ -24,8 +25,10 @@ ul {
 }
 
 .item__text {
-    display: none;
-    padding: 15px;
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: .5s;
 }
 
 .accordion__item:nth-child(odd) .item__title {
@@ -36,6 +39,11 @@ ul {
     background-color: #ff8663;
 }
 
+.accordion__item .item__title:hover {
+    background-color: #ff8663;
+}
+
 .accordion__item.active .item__text {
-    display: block;
+    opacity: 1;
+    padding: 15px;
 }
