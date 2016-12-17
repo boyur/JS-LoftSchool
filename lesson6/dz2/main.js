@@ -24,10 +24,44 @@ btn.addEventListener("click", function () {
   main.appendChild(div);
 });
 
-// main.addEventListener("click", function (e) {
-//   console.log(`x: ${e.clientX}; y:${e.clientY}`);
-// });
+let targetItem = {};
+let targetOffset = {};
+let flag = false;
 
 main.addEventListener("mousedown", function (e) {
+
+  if (e.target.tagName == "BODY") {
+    return;
+  }
+
+  flag = true;
+
+  targetItem = e.target;
+
+  console.log(targetItem);
+
+  targetOffset.x = e.clientX - e.target.style.left.replace(/[^-0-9]/gim,'');
+  targetOffset.y = e.clientY - e.target.style.top.replace(/[^-0-9]/gim,'');
+
   console.log(`x: ${e.target.style.top}; y:${e.target.style.left}`);
+  console.log(targetOffset);
+});
+
+main.addEventListener("mousemove", function (e) {
+  if (!flag) {
+    return;
+  }
+
+  console.log(targetItem);
+
+  targetItem.style.top = e.clientY - targetOffset.y + "px";
+  targetItem.style.left = e.clientX - targetOffset.x + "px";
+  console.log(e.clientX);
+  console.log(targetOffset.x);
+  console.log(e.target.style.top);
+});
+
+main.addEventListener("mouseup", function () {
+  flag = false;
+  targetItem = null;
 });
