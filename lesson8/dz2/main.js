@@ -1,3 +1,17 @@
+let p = new Promise(function (resolve) {
+  let req = new XMLHttpRequest();
+  req.open('GET', 'https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json', true);
+  req.onload = function() {
+    resolve(JSON.parse(req.response));
+  };
+  req.send();
+});
+
+p.then((obj) => {
+  obj.sort(compareName);
+  console.log(obj);
+});
+
 // Наша функция сравнения
 function compareName(a, b) {
   if (a.name > b.name) {
@@ -9,13 +23,3 @@ function compareName(a, b) {
   // a должно быть равным b
   return 0;
 }
-
-let obj = {};
-let req = new XMLHttpRequest();
-req.open('GET', 'https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json', true);
-req.onload = function() {
-  obj = JSON.parse(req.response);
-  obj.sort(compareName);
-  console.log(obj);
-};
-req.send();
