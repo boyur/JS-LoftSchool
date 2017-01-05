@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ1</title>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v4.0.5.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+<input type="text" id="text">
+<div id="container"></div>
+
+<script id="entry-template" type="text/x-handlebars-template">
+    {{#each obj}}
+        <div>{{this.name}}</div>
+    {{/each}}
+</script>
+
+</body>
+</html>

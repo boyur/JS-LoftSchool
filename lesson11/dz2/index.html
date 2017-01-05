@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+    <script src="http://vk.com/js/api/openapi.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+<div id="result"></div>
+
+
+<script id="entry-template" type="text/x-handlebars-template">
+    <h2>У тебя {{count}} друзей!</h2>
+    {{#each items}}
+    <div><img src="{{this.photo}}"> {{@index}} {{this.first_name}} {{this.last_name}}</div>
+    {{/each}}
+</script>
+</body>
+</html>
