@@ -1,13 +1,13 @@
-function consoleRec(arr, counter) {
-  if (counter == undefined) {
-    counter = 0;
+function consoleRec(arr, i) {
+  if (!i) {
+    i = 0;
   }
 
-  console.log(arr[counter]);
+  console.log(arr[i]);
 
-  if (counter < arr.length - 1) {
-    counter++;
-    return consoleRec(arr, counter);
+  if (arr[i]) {
+    i++;
+    return consoleRec(arr, i);
   }
 }
 
